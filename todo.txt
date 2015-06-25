@@ -1,0 +1,8 @@
+chrome_extension
+- Create a first time settings page like "Hi! Please enter your name and birthday:" with the option to skip
+- Communicate with horoscope service (??)
+- Validate a birthday when saving user options
+
+horoscope generation (??)
+- Figure out approach
+- Generate horoscopes 

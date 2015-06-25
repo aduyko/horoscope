@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Horoscope Extension Options</title>
+        <style>
+            body {
+                font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+                font-size: 100%;
+                color:#ffffff;
+                background-color: black;
+                background-image: url("/images/space_dark.jpg");
+                background-size: cover;
+            }
+            .options {
+                text-align:left;
+                max-width:600px;
+                margin:auto;
+                margin-top:120px;
+                padding-right:60px;
+                padding-left:60px;
+            }
+            .title {
+                font-size: 200%;
+                font-weight: bold;
+            }
+            .title a {
+                font-size:50%;
+            }
+            .settings {
+                font-size:160%;
+                margin-top:80px;
+                margin-bottom:80px;
+            }
+            #update_status {
+                /*margin-top:10px;*/
+                font-size:80%;
+                color:rgb(160,160,160);
+            }
+            .about {
+                font-size:100%;
+            }
+            a {
+                color:rgb(170,170,170);
+                font-weight:bold;
+            }
+        </style>
+
+        <script src="options.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="options">
+                <div class="title">
+                    Options  <a href="#" id="return_link">Back to Horoscope</a>
+                </div>
+                <div class="settings">
+                    Name: <input id="name" placeholder="Your Name" /> 
+                    <br />
+                    Birthday: <input id="birthday" placeholder="mm/dd/yyyy"/> 
+                    <br />
+                    <button id="update_btn" class="btn">Update</button> 
+                    <button id="clear_btn" class="btn">Clear</button> 
+                    <div id="update_status">&nbsp;</div>
+                </div>
+                <div class="about">
+                    Background image source: <a href="http://www.nasa.gov/content/goddard/hubble-s-high-definition-panoramic-view-of-the-andromeda-galaxy" target="_blank">NASA</a> <br/>
+                    Created by <a href="http://aduyko.com" target="_blank">Andriy Duyko</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
