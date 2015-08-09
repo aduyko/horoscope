@@ -1,23 +1,18 @@
-function validateBirthday(birthday) {
-
-}
-
 // save inputted name and birthday
 function saveOptions() {
-    var name = document.getElementById('name').value;
-    var birthday = document.getElementById('birthday').value;
-    var statusMessage = "Settings saved";
-    if (validateBirthday(birthday)) {
+    var name = document.getElementById('name').value.trim();
+    var birthday = document.getElementById('birthday').value.trim();
+    if (new Date(birthday) == "Invalid Date") {
+        setStatus("Invalid birthday, please use the format MM/DD/YYYY");
+    } else {
         chrome.storage.sync.set({
             name: name,
             birthday: birthday
         }, function() {
             // Update status to let user know options were saved.
-            
+           setStatus("Settings saved");
         });
-    } 
-    var status = document.getElementById('update_status');
-    status.innerHTML = 'Settings saved';
+    }
 }
 
 // deletes a users saved name and birthday, clears inputs
@@ -27,8 +22,7 @@ function clearOptions() {
         birthday: ''
     }, function() {
         // Update status to let user know options were saved.
-        var status = document.getElementById('update_status');
-        status.innerHTML = 'Settings cleared';
+        setStatus('Settings cleared');
         document.getElementById('name').value = '';
         document.getElementById('birthday').value = '';
     });
@@ -41,8 +35,34 @@ function restoreOptions() {
         birthday: ''
     }, function(data) {
         document.getElementById('name').value = data.name;
-        document.getElementById('birthday').value = data.birthday;
+        // parse birthday
+        var birthday = new Date(data.birthday);
+        var birthdayString = "";
+        if (birthday != "Invalid Date") {
+            var birthMonth = birthday.getMonth() + 1;
+            var birthDay = birthday.getDate();
+            var birthYear = birthday.getFullYear();
+            birthMonth = padDate(birthMonth);
+            birthDay = padDate(birthDay);
+            birthdayString = birthMonth + "/" + birthDay + "/" + birthYear;
+        }
+        document.getElementById('birthday').value = birthdayString;
     });
+}
+
+// add leading 0s to months and days
+function padDate(number) {
+    if (number < 10) {
+        number = "0" + number;
+    }
+    return number;
+}
+
+// set status message on options screen
+function setStatus(message) {
+    var status = document.getElementById('update_status');
+    status.innerHTML = message;
+    // maybe add fade timeout here
 }
 
 // startup, event listeners
@@ -62,10 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // return to horoscope
     document.getElementById('return_link').addEventListener('click', function(e){
         e.preventDefault();
-        chrome.tabs.getCurrent(function(tab){
-            chrome.tabs.create({},function(){
-                chrome.tabs.remove(tab.id);
-            });
-        });
+        history.back();
     });
 });

@@ -1,6 +1,6 @@
 function generateHoroscope(now,birthday) {
     if (null === birthday) {
-        birthday = new Date(now.getFullYear(), now.getMonth()-1, now.getDate());
+        birthday = new Date(now.getFullYear(), now.getMonth()+1, now.getDate());
     }
     console.log(birthday);
     return false;
@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
     loadHoroscope();
     document.getElementById('options_link').addEventListener('click', function(e){
         e.preventDefault();
-        chrome.extension.sendRequest({redirect: chrome.extension.getURL("/options/options.html")});
         window.location=chrome.extension.getURL("/options/options.html");
     });
 });
