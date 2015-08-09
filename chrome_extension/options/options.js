@@ -2,24 +2,27 @@
 function saveOptions() {
     var name = document.getElementById('name').value.trim();
     var birthday = document.getElementById('birthday').value.trim();
+    var now = new Date().getTime() - 1;
     if (new Date(birthday) == "Invalid Date") {
         setStatus("Invalid birthday, please use the format MM/DD/YYYY");
     } else {
         chrome.storage.sync.set({
             name: name,
-            birthday: birthday
+            birthday: birthday,
+            expires: now
         }, function() {
-            // Update status to let user know options were saved.
-           setStatus("Settings saved");
+            // Update status to let user know options were saved, clear horoscope cache
+            setStatus("Settings saved");
         });
     }
 }
 
-// deletes a users saved name and birthday, clears inputs
+// deletes all saved data
 function clearOptions() {
     chrome.storage.sync.set({
-        name: '',
-        birthday: ''
+        name: "",
+        birthday: "",
+        expires: null
     }, function() {
         // Update status to let user know options were saved.
         setStatus('Settings cleared');
@@ -31,8 +34,8 @@ function clearOptions() {
 // restores a users name and birthday to populate inputs
 function restoreOptions() {
     chrome.storage.sync.get({
-        name: '',
-        birthday: ''
+        name: "",
+        birthday: ""
     }, function(data) {
         document.getElementById('name').value = data.name;
         // parse birthday

@@ -1,10 +1,12 @@
 chrome_extension
 - Create a first time settings page like "Hi! Please enter your name and birthday:" with the option to skip
+- Add more stuff to main page
+-- Horoscope sign
+-- Zodiac sign (??)
+-- whatever
 
-horoscope generation (??)
-- Figure out approach
--- just do it in the extension in case of no internet/latency issuez
--- blum blum shub
+horoscope generation
+- Create more fortunes, give the sentences variables + make them structurable
 
 options
 - make status message fade out (??)
