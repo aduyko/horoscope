@@ -11,7 +11,7 @@
                 background-image: url("/images/space_dark.jpg");
                 background-size: cover;
             }
-            .options {
+            #options {
                 text-align:left;
                 max-width:600px;
                 margin:auto;
@@ -19,14 +19,14 @@
                 padding-right:60px;
                 padding-left:60px;
             }
-            .title {
+            #title {
                 font-size: 200%;
                 font-weight: bold;
             }
-            .title a {
+            #return_link {
                 font-size:50%;
             }
-            .settings {
+            #settings {
                 font-size:160%;
                 margin-top:80px;
                 margin-bottom:80px;
@@ -36,7 +36,7 @@
                 font-size:80%;
                 color:rgb(160,160,160);
             }
-            .about {
+            #about {
                 font-size:100%;
             }
             a {
@@ -48,12 +48,12 @@
         <script src="options.js"></script>
     </head>
     <body>
-        <div class="wrapper">
-            <div class="options">
-                <div class="title">
+        <div id="wrapper">
+            <div id="options">
+                <div id="title">
                     Options  <a href="#" id="return_link">Back to Horoscope</a>
                 </div>
-                <div class="settings">
+                <div id="settings">
                     Name: <input id="name" placeholder="Your Name" /> 
                     <br />
                     Birthday: <input id="birthday" placeholder="MM/DD/YYYY"/> 
@@ -62,7 +62,7 @@
                     <button id="clear_btn" class="btn">Clear</button> 
                     <div id="update_status">&nbsp;</div>
                 </div>
-                <div class="about">
+                <div id="about">
                     Background image source: <a href="http://www.nasa.gov/content/goddard/hubble-s-high-definition-panoramic-view-of-the-andromeda-galaxy" target="_blank">NASA</a> <br/>
                     Created by <a href="http://aduyko.com" target="_blank">Andriy Duyko</a>
                 </div>

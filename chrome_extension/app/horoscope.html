@@ -11,7 +11,7 @@
                 background-image: url("/images/space_dark.jpg");
                 background-size: cover;
             }
-            .horoscope {
+            #horoscope {
                 text-align:justify;
                 max-width:600px;
                 margin:auto;
@@ -27,13 +27,13 @@
             #text {
                 font-size:160%;
             }
-            .footer {
+            #footer {
                 width:95%;
                 position: fixed;
                 bottom: 12px;
                 text-align:right;
             }
-            .footer a {
+            #options_link {
                 text-decoration:none;
                 color:gray;
                 font-size:40px;
@@ -43,13 +43,13 @@
         <script src="horoscope.js"></script>
     </head>
     <body>
-        <div class="wrapper">
-            <div class="horoscope">
+        <div id="wrapper">
+            <div id="horoscope">
                 <div id="title"></div>
                 <div id="text"></div>
             </div>
         </div>
-        <div class="footer">
+        <div id="footer">
             <a href="#" id="options_link">?</a>
         </div>
     </body>
