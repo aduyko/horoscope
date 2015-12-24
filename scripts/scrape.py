@@ -103,6 +103,10 @@ def getHoroscopes(services,signs,startDate,endDate):
 
 # services = ["fab40"]
 services = ["goToHoroscope"]
+# thestar http://www.thestar.com/diversions/horoscope/2015/05/01/horoscope-for-friday-may-1-2015.html
+# freewillastrology http://www.freewillastrology.com/horoscopes/horo-archive.html
+# russel grant http://www.russellgrant.com/horoscopes_astrology/daily_horoscopes/index/2000/horoscopes-daily-january-01.html
+# aladdin fun house http://aladdinfunhouse.com/daily-horoscope-aries-tuesday-december-2-2014/
 signs = ["Aries","Taurus","Gemini","Cancer","Leo","Virgo","Libra","Scorpio","Sagittarius","Capricorn","Aquarius","Pisces"]
 startDate = datetime.date(2013,1,2)
 endDate = datetime.date(2013,1,2)
